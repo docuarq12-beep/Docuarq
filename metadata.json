@@ -1,0 +1,7 @@
+{
+  "name": "Docuarq - Architectural Digital Proposals",
+  "description": "A high-end architectural presentation platform allowing architects to create immersive before/after proposals with AI-generated descriptions and professional voice narration.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
