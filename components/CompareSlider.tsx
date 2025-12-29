@@ -1,6 +1,6 @@
 
-import React, { useState, useRef, useEffect } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface CompareSliderProps {
   beforeImage: string;
@@ -29,45 +29,45 @@ const CompareSlider: React.FC<CompareSliderProps> = ({ beforeImage, afterImage, 
   return (
     <div 
       ref={containerRef}
-      className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-2xl cursor-col-resize select-none shadow-2xl bg-slate-200 border border-slate-200"
+      className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden rounded-[2rem] cursor-col-resize select-none architectural-shadow bg-slate-100 group"
       onMouseMove={(e) => handleMove(e.clientX)}
       onTouchMove={(e) => handleMove(e.touches[0].clientX)}
     >
       {/* After Image (Base) */}
       <img 
-        src={afterImage || 'https://picsum.photos/1500/1000'} 
+        src={afterImage || 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1500'} 
         alt="Propuesta" 
         className="absolute inset-0 w-full h-full object-cover"
       />
 
       {/* Before Image (Clipped) */}
       <div 
-        className="absolute inset-0 w-full h-full overflow-hidden border-r-2 border-white shadow-[10px_0_15px_rgba(0,0,0,0.1)]" 
+        className="absolute inset-0 w-full h-full overflow-hidden" 
         style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
       >
         <img 
-          src={beforeImage || 'https://picsum.photos/1500/1000?grayscale'} 
+          src={beforeImage || 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1500&sat=-100'} 
           alt="Original" 
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover grayscale brightness-75"
         />
-        <div className="absolute top-6 left-6 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-widest uppercase">
+        <div className="absolute top-10 left-10 glass text-black px-5 py-2 rounded-full text-[10px] font-black tracking-[0.2em] uppercase">
           Estado Actual
         </div>
       </div>
 
-      <div className="absolute top-6 right-6 bg-blue-600/80 backdrop-blur-md text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-widest uppercase">
-        Propuesta Docuarq
+      <div className="absolute top-10 right-10 bg-black text-white px-5 py-2 rounded-full text-[10px] font-black tracking-[0.2em] uppercase">
+        Propuesta Digital
       </div>
 
       {/* Slider Handle */}
       <div 
-        className="absolute top-0 bottom-0 w-0.5 bg-white z-20" 
+        className="absolute top-0 bottom-0 w-px bg-white/40 z-20" 
         style={{ left: `${sliderPosition}%` }}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-slate-900/5 transition-transform hover:scale-110">
-          <div className="flex gap-0.5">
-            <ArrowLeft size={14} className="text-slate-900" />
-            <ArrowRight size={14} className="text-slate-900" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white rounded-full shadow-[0_0_40px_rgba(0,0,0,0.3)] flex items-center justify-center border-[6px] border-black transition-all group-hover:scale-110">
+          <div className="flex gap-1 text-black">
+            <ChevronLeft size={16} strokeWidth={3} />
+            <ChevronRight size={16} strokeWidth={3} />
           </div>
         </div>
       </div>

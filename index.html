@@ -4,28 +4,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Docuarq - Arquitectura Digital</title>
+    <title>Docuarq | Arquitectura Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --brand-red: #ff0000;
+        --brand-black: #0a0a0b;
+      }
       body {
         font-family: 'Inter', sans-serif;
+        background-color: #fcfcfc;
+        color: #1a1a1a;
+        -webkit-font-smoothing: antialiased;
       }
       .animate-fade-in {
-        animation: fadeIn 0.5s ease-out;
+        animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       }
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
+        from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      .cursor-col-resize {
-        cursor: col-resize;
+      .bg-studio {
+        background-image: 
+          linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+          linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+        background-size: 40px 40px;
       }
-      .bg-dots {
-        background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-        background-size: 20px 20px;
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .architectural-shadow {
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 20px 60px -10px rgba(0, 0, 0, 0.02);
+      }
+      ::selection {
+        background: var(--brand-red);
+        color: white;
       }
     </style>
   <script type="importmap">
@@ -40,7 +58,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+  <body class="overflow-x-hidden">
     <div id="root"></div>
   </body>
 </html>
